@@ -1,17 +1,29 @@
 """Region utilities"""
+import pandas as pd
 
-import requests
+from analytic.utils.requests_utils import request_get
+from settings.settings import (HOST_REGION_API, TOKEN_REGION_API,
+                               URL_REGION_API)
 
 
-def get_regions(url, headers):
+def get_regions():
     try:
-        response = requests.get(url=url, headers=headers)
-        if response.status_code == 200:
-            return response.json(), False
+        url = URL_REGION_API + '/all'
+        headers = {
+            'x-rapidapi-key': TOKEN_REGION_API,
+            'x-rapidapi-host': HOST_REGION_API
+        }
+        response, error = request_get(url, headers)
+        if not error:
+            df = pd.DataFrame(response)
+            region = df.region.unique()
+            region = list(filter(None, region))
+            return {'regions': region}, False
         else:
-            return {'msg': response.json(),
-                    'error': f'Status code {response.status_code}'
-                    }, True
+            return response, error
+    except AttributeError as aerr:
+        return {'msg': 'AttributeError - region',
+                'error': f'{aerr}'}, True
     except Exception as ex:
-        return {'msg': f'Failed request to {url}',
-                'error': ex}, True
+        return {'msg': 'General Error',
+                'error': f'{ex}'}, True
