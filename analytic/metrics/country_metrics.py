@@ -13,7 +13,7 @@ def get_country_dataframe():
     """Get country dataframe"""
     try:
         regions, error = get_regions()
-        df = pd.DataFrame(columns=['Region', 'City Name', 'Language', 'Time'])
+        df = pd.DataFrame(columns=['Region', 'City Name', 'Language', 'Time (ms)'])
         if not error:
             for region in regions['regions']:
                 start_time = time.time()
@@ -38,7 +38,7 @@ def get_country_dataframe():
                 row = {'Region': region,
                        'City Name': country_name,
                        'Language': language,
-                       'Time': f'{time_per_country * 1000} ms'
+                       'Time (ms)': time_per_country * 1000
                        }
                 df = df.append(row, ignore_index=True)
             return df
@@ -47,3 +47,27 @@ def get_country_dataframe():
     except Exception as ex:
         return {'msg': 'General Error in get_country_dataframe',
                 'error': ex}
+
+
+def get_time_spent_metrics(time_col):
+    """Get time spent metrics (total, mean, minimum and maximum time
+    spent processing each row)
+
+    :param time_col: time column
+    :type time_col: pandas.core.series.Series
+    """
+    try:
+        total_time = time_col.sum()
+        mean_time = time_col.mean()
+        min_time = time_col.min()
+        max_time = time_col.max()
+        return {
+            'total_time': total_time,
+            'mean_time': mean_time,
+            'min_time': min_time,
+            'max_time': max_time
+        }
+    except Exception as ex:
+        return {'msg': 'General error in get_time_spent_metrics',
+                'error': ex
+                }
