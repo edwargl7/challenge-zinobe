@@ -15,6 +15,17 @@ Aplicacion en Python 3 que genere la tabla anterior en consola, calcula el tiemp
 
 [Modelo de Datos](https://github.com/edwargl7/challenge-zinobe/blob/develop/docs/images/Challenge%20zinobe.png)
 
+# Especificaciones Técnicas
+
+## Tecnologías Implementadas y Versiones
+
+Este proyecto está desarrollado en el lenguaje Python versión 2.8 y como motor de base de datos
+SQLite.
+
+* [Python 3](https://www.python.org/downloads/release/python-380/) 3.8.7
+* [Pandas](https://pandas.pydata.org/) 1.2.2
+* [SQLite 3](https://www.sqlite.org/index.html) 3
+
 ## Variables de Entorno
 
 ```bash
