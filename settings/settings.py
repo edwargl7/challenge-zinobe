@@ -1,7 +1,14 @@
 """
 Settings for analytic project.
 """
+from pathlib import Path
+
 from decouple import config
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+FILE_ROOT = BASE_DIR.joinpath('files/')
 
 # Region Variables
 HOST_REGION_API = config('HOST_REGION_API',
