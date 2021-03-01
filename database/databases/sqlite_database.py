@@ -14,12 +14,14 @@ class SQLiteDatabase(DatabaseInterface):
     Manage sqlite databases (connections and queries).
     """
 
-    @staticmethod
-    def __connect_database():
+    def __init__(self, db_credentials):
+        super().__init__(db_credentials)
+
+    def __connect_database(self):
         connection = None
         msg = ''
         try:
-            connection = sqlite3.connect('analytic_database.db')
+            connection = sqlite3.connect(self._db_credentials['database_name'])
             print('SQLite connection created')
         except (Exception, Error) as error:
             msg = f'Error while connecting to SQLite. {error}'

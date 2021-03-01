@@ -16,6 +16,6 @@ class DatabaseFactory:
         :return: manage database.
         """
         if database == 'sqlite':
-            return SQLiteDatabase(None)
+            return SQLiteDatabase(db_credentials)
         else:
             raise ValueError(database)

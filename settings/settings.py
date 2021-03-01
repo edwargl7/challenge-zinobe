@@ -11,7 +11,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 FILE_ROOT = BASE_DIR.joinpath('files/')
 
-manage_database = DatabaseFactory.get_manage_database('sqlite', None)
+DATABASE_NAME = config('DATABASE_NAME',
+                       default='analytic_database.db')
+manage_database = DatabaseFactory.get_manage_database(
+    'sqlite',
+    {'database_name': DATABASE_NAME}
+)
 
 # Region Variables
 HOST_REGION_API = config('HOST_REGION_API',
