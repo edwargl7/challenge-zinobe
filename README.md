@@ -17,6 +17,8 @@ Aplicacion en Python 3 que genere la tabla anterior en consola, calcula el tiemp
 
 ## Variables de Entorno
 
+Puede crear un archivo .env con las siguientes variables:
+
 ```bash
 HOST_REGION_API=[Host del API de regiones]
 TOKEN_REGION_API=[token o API KEY del API de regiones]
