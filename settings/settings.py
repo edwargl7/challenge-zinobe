@@ -4,11 +4,14 @@ Settings for analytic project.
 from pathlib import Path
 
 from decouple import config
+from database.databases.database_factory import DatabaseFactory
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 FILE_ROOT = BASE_DIR.joinpath('files/')
+
+manage_database = DatabaseFactory.get_manage_database('sqlite', None)
 
 # Region Variables
 HOST_REGION_API = config('HOST_REGION_API',
