@@ -9,6 +9,12 @@
 
 Aplicacion en Python 3 que genere la tabla anterior en consola, calcula el tiempo total, promedio, mínimo y máximo que le toma generar cada fila.
 
+# Modelo de Datos
+
+![entrada](https://github.com/edwargl7/challenge-zinobe/blob/develop/docs/images/Challenge%20zinobe.png)
+
+[Modelo de Datos](https://github.com/edwargl7/challenge-zinobe/blob/develop/docs/images/Challenge%20zinobe.png)
+
 ## Variables de Entorno
 
 ```bash
