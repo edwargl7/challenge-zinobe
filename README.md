@@ -19,7 +19,7 @@ Aplicacion en Python 3 que genere la tabla anterior en consola, calcula el tiemp
 
 ## Tecnologías Implementadas y Versiones
 
-Este proyecto está desarrollado en el lenguaje Python versión 2.8 y como motor de base de datos
+Este proyecto está desarrollado en el lenguaje Python versión 3.8 y como motor de base de datos
 SQLite.
 
 * [Python 3](https://www.python.org/downloads/release/python-380/) 3.8.7
